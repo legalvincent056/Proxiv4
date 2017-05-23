@@ -15,6 +15,8 @@ import com.huios.metier.Compte;
 import com.huios.metier.Conseiller;
 import com.huios.metier.Personne;
 import com.huios.metier.User;
+import com.huios.metier.CompteCourant;
+import com.huios.metier.CompteEpargne;
 
 @Service
 public class ServiceImp implements IServiceConseiller {
@@ -60,14 +62,31 @@ public class ServiceImp implements IServiceConseiller {
 	}
 
 	@Override
-	public void virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant) {
-		compteDebiteur.setSolde(compteDebiteur.getSolde() - montant);
-		compteCrediteur.setSolde(compteCrediteur.getSolde() + montant);
-		
-		daoCo.save(compteDebiteur);
-		daoCo.save(compteCrediteur);
-				
+	public boolean virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant) {
+		if (montant >= 0) {
+			if (compteDebiteur instanceof CompteEpargne) {
+				if (montant > compteDebiteur.getSolde()) {
+					return false;
+				}
+			}
+			if (compteDebiteur instanceof CompteCourant) {
+				double decouvert = ((CompteCourant) compteDebiteur).getDecouvert();
+				if (montant > compteDebiteur.getSolde() + decouvert) {
+					return false;
+				}
+			}
+			compteDebiteur.setSolde(compteDebiteur.getSolde() - montant);
+			compteCrediteur.setSolde(compteCrediteur.getSolde() + montant);
+			
+			daoCo.save(compteDebiteur);
+			daoCo.save(compteCrediteur);
+			
+			return true;
+		}
+		return false;
 	}
+		
+	
 
 	@Override
 	public Conseiller afficherConseiller(long idConseiller) {

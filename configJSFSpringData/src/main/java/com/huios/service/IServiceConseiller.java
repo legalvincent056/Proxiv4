@@ -86,7 +86,7 @@ public interface IServiceConseiller {
 	 *            Somme à virer
 	 * @return vrai si le virement a été effectué et faux dans le cas contraire
 	 */
-	public void virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant);
+	public boolean virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant);
 
 	/**
 	 * retourne le conseiller corespondant a l'Id
