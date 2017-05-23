@@ -98,6 +98,22 @@ public class ServiceImp implements IServiceConseiller {
 	public void modifierClient(Client client) {
 		daoP.save(client);
 	}
+
+	@Override
+	public void ajouterClient(long idConseiller, Client client) {
+		Conseiller cons = daoC.findOne(idConseiller);
+		Collection<Client> clients = daoP.listerClientsParConseiller(cons);
+		
+		//if(clients.size()>=10){
+			client.setConseiller(cons);
+			daoP.save(client);
+					
+		//}
+			
+		
+		
+	}
+	
 	
 	
 	

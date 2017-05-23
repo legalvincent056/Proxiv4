@@ -37,6 +37,14 @@ public interface IServiceConseiller {
 	 * 
 	 */
 	public void modifierClient(Client client);
+	/**
+	 * Ajoute le client
+	 * 
+	 * @param client
+	 *            client à ajouter
+	 * 
+	 */
+	public void ajouterClient(long idConseiller, Client client);
 
 	/**
 	 * Récupère les comptes associés à un client

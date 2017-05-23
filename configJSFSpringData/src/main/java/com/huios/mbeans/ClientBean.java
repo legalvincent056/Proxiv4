@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
 
+import com.huios.metier.Adresse;
 import com.huios.metier.Client;
 import com.huios.service.IServiceConseiller;
 
@@ -34,7 +35,8 @@ public class ClientBean implements Serializable {
 	@ManagedProperty(value="#{conseillerBean}")
 	private ConseillerBean conseillerBean;
 	
-	
+	@Autowired
+	private Adresse adresse;
 
 	public IServiceConseiller getService() {
 		return service;
@@ -79,6 +81,9 @@ public class ClientBean implements Serializable {
 		return "detailsClient";
 	}
 	
+	public String ajouterClient(long idConseiller, Client client){ //A voir pour ajouter adresse
+		service.ajouterClient(idConseiller, client);
+		return "listeClients";
+	}
 	
-
 }
