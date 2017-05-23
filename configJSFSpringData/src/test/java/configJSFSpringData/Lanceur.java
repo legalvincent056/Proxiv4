@@ -35,7 +35,7 @@ public class Lanceur {
 				
 								
 				System.out.println(isc.listerComptesClient(client));
-				
+				/*
 				Compte compte1 = (Compte) appContext.getBean("compteCourant");
 				Compte compte2 = (Compte) appContext.getBean("compteEpargne");
 				
@@ -43,6 +43,11 @@ public class Lanceur {
 				compte2 = isc.getCompteParId(4);
 				
 				isc.virementComptes(compte1, compte2, 200);
+				*/
+				
+				client.setNom("NomMod");
+				
+				isc.modifierClient(client);
 				
 				
 				
