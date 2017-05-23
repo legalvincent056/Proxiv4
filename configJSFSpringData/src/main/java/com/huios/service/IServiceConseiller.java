@@ -36,7 +36,7 @@ public interface IServiceConseiller {
 	 *            client à modifier
 	 * 
 	 */
-//	public void modifierClient(Client client);
+	public void modifierClient(Client client);
 
 	/**
 	 * Récupère les comptes associés à un client
@@ -86,7 +86,7 @@ public interface IServiceConseiller {
 	 *            Somme à virer
 	 * @return vrai si le virement a été effectué et faux dans le cas contraire
 	 */
-	public boolean virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant);
+	public void virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant);
 
 	/**
 	 * retourne le conseiller corespondant a l'Id

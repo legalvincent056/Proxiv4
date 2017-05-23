@@ -3,6 +3,7 @@ package configJSFSpringData;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.huios.metier.Client;
+import com.huios.metier.Compte;
 import com.huios.metier.Conseiller;
 import com.huios.service.IServiceConseiller;
 
@@ -34,6 +35,15 @@ public class Lanceur {
 				
 								
 				System.out.println(isc.listerComptesClient(client));
+				
+				Compte compte1 = (Compte) appContext.getBean("compteCourant");
+				Compte compte2 = (Compte) appContext.getBean("compteEpargne");
+				
+				compte1 = isc.getCompteParId(1);
+				compte2 = isc.getCompteParId(4);
+				
+				isc.virementComptes(compte1, compte2, 200);
+				
 				
 				
 				//SocieteDevLogiciel societe = (SocieteDevLogiciel) appContext.getBean("societe");

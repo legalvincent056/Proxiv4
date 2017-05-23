@@ -17,4 +17,7 @@ public interface IDaoCompte extends JpaRepository<Compte,Long> {
 	
 	@Query("SELECT c FROM Compte c WHERE c.numeroCompte <> :id")
 	public Collection<Compte> listerAutresComptes(@Param("id") long idCompte);
+	
+	
+	
 }

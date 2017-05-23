@@ -59,11 +59,15 @@ public class ServiceImp implements IServiceConseiller {
 		return daoCo.listerAutresComptes(idCompte);
 	}
 
-/*	@Override
-	public boolean virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant) {
+	@Override
+	public void virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant) {
+		compteDebiteur.setSolde(compteDebiteur.getSolde() - montant);
+		compteCrediteur.setSolde(compteCrediteur.getSolde() + montant);
 		
-		return null;	
-	}*/
+		daoCo.save(compteDebiteur);
+		daoCo.save(compteCrediteur);
+				
+	}
 
 	@Override
 	public Conseiller afficherConseiller(long idConseiller) {
@@ -71,11 +75,10 @@ public class ServiceImp implements IServiceConseiller {
 		return (Conseiller) daoC.findOne(idConseiller);
 	}
 
-	/*@Override
+	@Override
 	public void modifierClient(Client client) {
-		// TODO Auto-generated method stub
-		
-	}*/
+		daoP.save(client);
+	}
 	
 	
 	
