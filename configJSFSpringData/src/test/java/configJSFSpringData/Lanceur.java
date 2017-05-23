@@ -2,6 +2,7 @@ package configJSFSpringData;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.huios.metier.Client;
 import com.huios.metier.Conseiller;
 import com.huios.service.IServiceConseiller;
 
@@ -18,16 +19,26 @@ public class Lanceur {
 				
 				IServiceConseiller isc = (IServiceConseiller) appContext.getBean("serviceImp");
 				
+				
+				
 				Conseiller conseiller = (Conseiller) appContext.getBean("conseiller");
 				
-				conseiller = isc.afficherConseiller(1);
+				conseiller = isc.afficherConseiller(6);
 				
 				System.out.println(isc.listerClientsParConseiller(conseiller));
+				
+				Client client = (Client) appContext.getBean("client");
+				
+				client = isc.retourneClientParId(5);
+				
+				
+								
+				System.out.println(isc.listerComptesClient(client));
 				
 				
 				//SocieteDevLogiciel societe = (SocieteDevLogiciel) appContext.getBean("societe");
 				//3- traitement
-				System.out.println(conseiller);
+				
 				//4- detruire le context
 				appContext.close();
 		

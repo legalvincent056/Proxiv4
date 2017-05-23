@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.huios.dao.springdata.IDaoConseiller;
 import com.huios.dao.springdata.IDaoClient;
+import com.huios.dao.springdata.IDaoCompte;
 import com.huios.metier.Client;
 import com.huios.metier.Compte;
 import com.huios.metier.Conseiller;
@@ -23,6 +24,10 @@ public class ServiceImp implements IServiceConseiller {
 	
 	@Autowired
 	private IDaoConseiller daoC;
+	
+	
+	@Autowired
+	private IDaoCompte daoCo;
 /*
 	@Override
 	public Conseiller verificationLogin(String login, String pwd) {
@@ -35,23 +40,16 @@ public class ServiceImp implements IServiceConseiller {
 		return daoP.listerClientsParConseiller(conseiller);
 	}
 
-/*	@Override
-	public void modifierClient(Client client) {
-		daoP.modifierClient(client);
-		
-	}*/
 
-/*	@Override
+	@Override
 	public Collection<Compte> listerComptesClient(Client client) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
+		return daoCo.listerComptesClient(client);
+	}
 
-/*	@Override
+	@Override
 	public Client retourneClientParId(long idClient) {
 		return daoP.findOne(idClient);
-	}*/
-
+	}
 /*	@Override
 	public Compte getCompteParId(long idCompte) {
 		// TODO Auto-generated method stub
@@ -74,6 +72,12 @@ public class ServiceImp implements IServiceConseiller {
 	public Conseiller afficherConseiller(long idConseiller) {
 		
 		return (Conseiller) daoC.findOne(idConseiller);
+	}
+
+	@Override
+	public void modifierClient(Client client) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

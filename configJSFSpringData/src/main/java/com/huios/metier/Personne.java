@@ -90,6 +90,12 @@ public abstract class Personne {
 		this.telephone = telephone;
 		this.email = email;
 	}
+
+	@Override
+	public String toString() {
+		return "Personne [idPersonne=" + idPersonne + ", nom=" + nom + ", prenom=" + prenom + ", telephone=" + telephone
+				+ ", email=" + email + ", adresse=" + adresse + "]";
+	}
 	
 	
 

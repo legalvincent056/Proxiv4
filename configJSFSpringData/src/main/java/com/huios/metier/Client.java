@@ -153,8 +153,14 @@ public class Client extends Personne {
 
 	@Override
 	public String toString() {
-		return "Client [nomEntreprise=" + nomEntreprise + ", entreprise=" + entreprise + "]";
+		return "Client [nomEntreprise=" + nomEntreprise + ", entreprise=" + entreprise + ", conseiller=" + conseiller + ", toString()=" + super.toString()
+				+ "]";
 	}
+
+
+
+
+
 
 
 

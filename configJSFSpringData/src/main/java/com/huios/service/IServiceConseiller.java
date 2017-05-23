@@ -36,7 +36,7 @@ public interface IServiceConseiller {
 	 *            client à modifier
 	 * 
 	 */
-//	public void modifierClient(Client client);
+	public void modifierClient(Client client);
 
 	/**
 	 * Récupère les comptes associés à un client
@@ -45,7 +45,7 @@ public interface IServiceConseiller {
 	 *            Le client dont on veut les comptes
 	 * @return Les comptes du client
 	 */
-//	public Collection<Compte> listerComptesClient(Client client);
+	public Collection<Compte> listerComptesClient(Client client);
 
 	/**
 	 * Retourne un client correspondant a l'Id
@@ -54,7 +54,7 @@ public interface IServiceConseiller {
 	 *            id du client à retourner
 	 * @return client correspondant à l'id
 	 */
-//	public Client retourneClientParId(long idClient);
+	public Client retourneClientParId(long idClient);
 
 	/**
 	 * Retourne un compte selectionné par son id
