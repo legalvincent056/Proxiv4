@@ -1,5 +1,6 @@
 package com.huios.mbeans;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 import javax.faces.bean.ManagedProperty;
@@ -16,13 +17,20 @@ import com.huios.service.IServiceConseiller;
 
 @Controller
 @SessionScope
-public class ClientBean {
+public class ClientBean implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6055996497840434848L;
+
 	@Autowired
 	private IServiceConseiller service; 
+	@Autowired
 	private Collection<Client> clients;
 	@Autowired
 	private Client client;
 	
+	@Autowired
 	@ManagedProperty(value="#{conseillerBean}")
 	private ConseillerBean conseillerBean;
 	

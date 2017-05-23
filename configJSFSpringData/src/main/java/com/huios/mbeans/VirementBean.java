@@ -1,5 +1,6 @@
 package com.huios.mbeans;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 import javax.faces.application.FacesMessage;
@@ -16,11 +17,18 @@ import com.huios.service.IServiceConseiller;
 
 @Controller
 @SessionScope
-public class VirementBean {
+public class VirementBean implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2844022733522014481L;
 	@Autowired
 	private IServiceConseiller service;
+	@Autowired
 	private Compte compteDebiteur;
+	@Autowired
 	private Compte compteCrediteur;
+	
 	private long idCompteCrediteur;
 	private double montant;
 	private Collection<Compte> autresComptes;

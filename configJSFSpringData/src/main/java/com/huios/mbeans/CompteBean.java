@@ -1,5 +1,6 @@
 package com.huios.mbeans;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -15,10 +16,15 @@ import com.huios.service.IServiceConseiller;
 
 @Controller
 @SessionScope
-public class CompteBean {
+public class CompteBean implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6112365196611017112L;
+
 	@Autowired
 	private IServiceConseiller service;
-	
+	@Autowired
 	private Collection<Compte> comptes = new ArrayList<Compte>();
 	
 	@ManagedProperty(value="#{clientBean}")

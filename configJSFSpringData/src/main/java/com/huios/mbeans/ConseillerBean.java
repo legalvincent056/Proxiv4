@@ -1,5 +1,7 @@
 package com.huios.mbeans;
 
+import java.io.Serializable;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -13,8 +15,12 @@ import com.huios.service.IServiceConseiller;
 
 @Controller
 @SessionScope
-public class ConseillerBean {
+public class ConseillerBean implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2555872694845302663L;
 	@Autowired
 	private IServiceConseiller service;
 	@Autowired
