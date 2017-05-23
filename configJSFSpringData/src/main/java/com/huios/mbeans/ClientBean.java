@@ -19,7 +19,6 @@ import com.huios.service.IServiceConseiller;
 public class ClientBean {
 	@Autowired
 	private IServiceConseiller service; 
-	@Autowired
 	private Collection<Client> clients;
 	@Autowired
 	private Client client;

@@ -15,7 +15,7 @@
 			<p:menuitem action="detailsClient" value="Retour page client" />
 			<f:facet name="options">
 				<p:outputLabel class="barre"
-					value="Bonjour #{conseillerBean.conseiller.nom}, " />
+					value="Bonjour #{conseillerBean.conseiller.login}, " />
 				<p:commandButton class="barre" type="submit" icon="ui-icon-extlink"
 					action="#{conseillerBean.deconnexion}" value="Déconnexion" />
 			</f:facet>
