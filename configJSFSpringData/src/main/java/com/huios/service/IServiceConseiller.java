@@ -18,7 +18,7 @@ public interface IServiceConseiller {
 	 *            mots de passe
 	 * @return retourne le conseiller
 	 */
-//	public Conseiller verificationLogin(String login, String pwd);
+	public Conseiller verificationLogin(String login, String pwd);
 
 	/**
 	 * retourne la liste de clients d'un conseiller
@@ -36,7 +36,7 @@ public interface IServiceConseiller {
 	 *            client à modifier
 	 * 
 	 */
-	public void modifierClient(Client client);
+//	public void modifierClient(Client client);
 
 	/**
 	 * Récupère les comptes associés à un client
@@ -63,7 +63,7 @@ public interface IServiceConseiller {
 	 *            identifiant du compte à retourner
 	 * @return compte correspondant à l'Id
 	 */
-//	public Compte getCompteParId(long idCompte);
+	public Compte getCompteParId(long idCompte);
 
 	/**
 	 * Récupère tous les comptes de l'agence sauf le compte donné en argument
@@ -73,7 +73,7 @@ public interface IServiceConseiller {
 	 * 
 	 * @return une collection de comptes de l'agence
 	 */
-//	public Collection<Compte> listerAutresComptes(long idCompte);
+	public Collection<Compte> listerAutresComptes(long idCompte);
 
 	/**
 	 * Met à jour les comptes lors d'un virement
@@ -86,7 +86,7 @@ public interface IServiceConseiller {
 	 *            Somme à virer
 	 * @return vrai si le virement a été effectué et faux dans le cas contraire
 	 */
-//	public boolean virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant);
+	public boolean virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant);
 
 	/**
 	 * retourne le conseiller corespondant a l'Id

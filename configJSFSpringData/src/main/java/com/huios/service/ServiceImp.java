@@ -28,12 +28,11 @@ public class ServiceImp implements IServiceConseiller {
 	
 	@Autowired
 	private IDaoCompte daoCo;
-/*
+
 	@Override
 	public Conseiller verificationLogin(String login, String pwd) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
+		return daoC.verificationLogin(login, pwd);
+	}
 
 	@Override
 	public Collection<Client> listerClientsParConseiller(Conseiller conseiller) {
@@ -50,22 +49,20 @@ public class ServiceImp implements IServiceConseiller {
 	public Client retourneClientParId(long idClient) {
 		return daoP.findOne(idClient);
 	}
-/*	@Override
+	@Override
 	public Compte getCompteParId(long idCompte) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
+		return daoCo.findOne(idCompte);
+	}
 
-/*	@Override
+	@Override
 	public Collection<Compte> listerAutresComptes(long idCompte) {
-		// TODO Auto-generated method stub
-		return null;
-	}*/
+		return daoCo.listerAutresComptes(idCompte);
+	}
 
 /*	@Override
 	public boolean virementComptes(Compte compteDebiteur, Compte compteCrediteur, double montant) {
-		// TODO Auto-generated method stub
-		return false;
+		
+		return null;	
 	}*/
 
 	@Override
@@ -74,11 +71,11 @@ public class ServiceImp implements IServiceConseiller {
 		return (Conseiller) daoC.findOne(idConseiller);
 	}
 
-	@Override
+	/*@Override
 	public void modifierClient(Client client) {
 		// TODO Auto-generated method stub
 		
-	}
+	}*/
 	
 	
 	

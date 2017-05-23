@@ -20,8 +20,8 @@ public interface IDaoClient extends JpaRepository<Client,Long> {
 	@Query ("SELECT c FROM Client c WHERE c.conseiller = :conseiller")
 	public Collection<Client> listerClientsParConseiller(@Param("conseiller") Conseiller conseiller);
 
-	@Query("UPDATE Client c set c. )
-	public void modifierClient(@Param("client") Client client);
+	//@Query("UPDATE Client c set c.nom,  )
+	//public void modifierClient(@Param("client") Client client);
 	
 	
 }
