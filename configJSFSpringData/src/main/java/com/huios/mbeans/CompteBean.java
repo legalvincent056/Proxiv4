@@ -24,9 +24,9 @@ public class CompteBean implements Serializable{
 
 	@Autowired
 	private IServiceConseiller service;
-	@Autowired
-	private Collection<Compte> comptes = new ArrayList<Compte>();
 	
+	private Collection<Compte> comptes = new ArrayList<Compte>();
+	@Autowired
 	@ManagedProperty(value="#{clientBean}")
 	private ClientBean clientBean;
 	

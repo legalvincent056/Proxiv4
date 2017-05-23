@@ -24,9 +24,7 @@ public class VirementBean implements Serializable {
 	private static final long serialVersionUID = 2844022733522014481L;
 	@Autowired
 	private IServiceConseiller service;
-	@Autowired
 	private Compte compteDebiteur;
-	@Autowired
 	private Compte compteCrediteur;
 	
 	private long idCompteCrediteur;

@@ -1,6 +1,7 @@
 package com.huios.mbeans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.faces.bean.ManagedProperty;
@@ -25,8 +26,7 @@ public class ClientBean implements Serializable {
 
 	@Autowired
 	private IServiceConseiller service; 
-	@Autowired
-	private Collection<Client> clients;
+	private Collection<Client> clients = new ArrayList<Client>();
 	@Autowired
 	private Client client;
 	
