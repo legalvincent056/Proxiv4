@@ -17,12 +17,30 @@ import org.springframework.stereotype.Component;
 @DiscriminatorValue("GERANT")
 public class Gerant extends Personne {
 
+	private String login;
+	private String pwd;
 	@OneToMany(mappedBy="gerant")
 	private Collection<Conseiller> conseillers = new ArrayList<Conseiller>();
 	@OneToOne(mappedBy = "gerant")
 	private Agence agence;
 	
 	
+
+	public String getLogin() {
+		return login;
+	}
+
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
 
 	public Gerant(String nom, String prenom, String telephone, String email, Collection<Conseiller> conseillers,
 			Agence agence) {

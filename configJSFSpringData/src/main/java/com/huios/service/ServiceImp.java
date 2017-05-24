@@ -46,6 +46,11 @@ public class ServiceImp implements IServiceConseiller, IServiceGerant {
 	}
 
 	@Override
+	public Gerant verificationLoginGerant(String login, String pwd) {
+		return daoG.verificationLoginGerant(login, pwd);
+	}
+	
+	@Override
 	public Collection<Client> listerClientsParConseiller(Conseiller conseiller) {
 		return daoP.listerClientsParConseiller(conseiller);
 	}
@@ -152,7 +157,10 @@ public class ServiceImp implements IServiceConseiller, IServiceGerant {
 		
 		return daoG.listerConseillerParGerant(gerant);
 	}
-	
+
+
+
+
 	
 	
 	
