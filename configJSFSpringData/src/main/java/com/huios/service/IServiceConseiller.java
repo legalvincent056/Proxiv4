@@ -2,6 +2,7 @@ package com.huios.service;
 
 import java.util.Collection;
 
+import com.huios.metier.Adresse;
 import com.huios.metier.Client;
 import com.huios.metier.Compte;
 import com.huios.metier.Conseiller;
@@ -107,5 +108,5 @@ public interface IServiceConseiller {
 	
 	public void ajouterCompte(long idPersonne , Compte compte);
 	
-
+	public void ajouterAdresse(long idPersonne,Adresse adresse);
 }

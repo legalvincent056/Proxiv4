@@ -165,29 +165,22 @@ public class Lanceur {
 				isc.ajouterClient(conseiller1.getIdPersonne(), client3);
 				isc.ajouterClient(conseiller1.getIdPersonne(), client4);
 				isc.ajouterClient(conseiller2.getIdPersonne(), client5);
-				client1.getIdPersonne()
+				
 //				// adresses
-				isc.ajouterAdresse(client1.getIdPersonne(),adresse1)
+				isc.ajouterAdresse(client1.getIdPersonne(),adresse1);
+				isc.ajouterAdresse(client2.getIdPersonne(),adresse2);
+				isc.ajouterAdresse(client3.getIdPersonne(),adresse3);
+				isc.ajouterAdresse(client4.getIdPersonne(),adresse4);
+				isc.ajouterAdresse(client5.getIdPersonne(),adresse1);
 //				// comptes
-//				em.persist(cc1);
-//				em.persist(cc2);
-//				em.persist(cc3);
-//				em.persist(ce1);
-//				em.persist(ce2);
-//				em.persist(ce3);
-//
-//				// Conseiller2
-//				em.persist(c2);
-//
-//				// Client 5
-//				em.persist(cl5);
-//
-//				
-//				//4- detruire le context
-//				appContext.close();
-//				IServiceConseiller.ajouterConseiller(conseiller1);
-		
-		
+				isc.ajouterCompte(client1.getIdPersonne(), compte1);
+				isc.ajouterCompte(client1.getIdPersonne(), compteEp1);
+				isc.ajouterCompte(client2.getIdPersonne(), compte2);
+				isc.ajouterCompte(client3.getIdPersonne(), compteEp2);
+				isc.ajouterCompte(client4.getIdPersonne(), compte3);
+				isc.ajouterCompte(client4.getIdPersonne(), compteEp3);
+
+
 		
 	}
 
