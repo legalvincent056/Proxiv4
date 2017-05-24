@@ -16,7 +16,9 @@ import com.huios.metier.Compte;
 import com.huios.metier.CompteCourant;
 import com.huios.metier.CompteEpargne;
 import com.huios.metier.Conseiller;
+import com.huios.metier.Gerant;
 import com.huios.service.IServiceConseiller;
+import com.huios.service.IServiceGerant;
 
 public class Lanceur {
 
@@ -27,7 +29,10 @@ public class Lanceur {
 				//1- Chargement du container et creation des beans
 				ClassPathXmlApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 				//2- récuperation d'un bean
+				IServiceGerant isg =  (IServiceGerant) appContext.getBean("serviceImp");
 				IServiceConseiller isc = (IServiceConseiller) appContext.getBean("serviceImp");
+				Gerant gerant1 = (Gerant) appContext.getBean("gerant");
+				Gerant gerant2 = (Gerant) appContext.getBean("gerant");
 				Conseiller conseiller1 = (Conseiller) appContext.getBean("conseiller");
 				Conseiller conseiller2 = (Conseiller) appContext.getBean("conseiller");
 				Client client1 = (Client) appContext.getBean("client");
@@ -96,41 +101,42 @@ public class Lanceur {
 				client2.setAdresse(adresse2);
 				client3.setAdresse(adresse3);
 				client4.setAdresse(adresse4);
-				client5.setAdresse(adresse2);// Meme adresse que cl2
+				client5.setAdresse(adresse2);// Meme adresse que clien2
 
-//				// association client-compte
-//				Collection<Compte> comptes = new ArrayList<Compte>();
-//				comptes.add(cc1);
-//				comptes.add(ce1);
-//
-//				cl1.setComptes(comptes);
-//				cc1.setClient(cl1);
-//				ce1.setClient(cl1);
-//
-//				comptes = new ArrayList<Compte>();
-//				comptes.add(cc2);
-//				cl2.setComptes(comptes);
-//				cc2.setClient(cl2);
-//
-//				comptes = new ArrayList<Compte>();
-//				comptes.add(ce2);
-//				cl3.setComptes(comptes);
-//				ce2.setClient(cl3);
-//
-//				comptes = new ArrayList<Compte>();
-//				comptes.add(cc3);
-//				comptes.add(ce3);
-//				cl4.setComptes(comptes);
-//				cc3.setClient(cl4);
-//				ce3.setClient(cl4);
-//
-//				EntityManagerFactory emf = Persistence.createEntityManagerFactory("proxiv3-pu");
-//				EntityManager em = emf.createEntityManager();
-//				EntityTransaction tx = em.getTransaction();
-//				tx.begin();
+				// association client-compte
+				Collection<Compte> comptes = new ArrayList<Compte>();
+				comptes.add(compte1);
+				comptes.add(compteEp1);
+
+				client1.setComptes(comptes);
+				compte1.setClient(client1);
+				compteEp1.setClient(client1);
+
+				comptes = new ArrayList<Compte>();
+				comptes.add(compte2);
+				client2.setComptes(comptes);
+				compte2.setClient(client2);
+			
+				
+				comptes = new ArrayList<Compte>();
+				comptes.add(compteEp2);
+				client3.setComptes(comptes);
+				compteEp2.setClient(client3);
+				
+
+				comptes = new ArrayList<Compte>();
+				comptes.add(compte3);
+				comptes.add(compteEp3);
+
+				client4.setComptes(comptes);
+				compte3.setClient(client4);
+				compteEp3.setClient(client4);
+				
+				//gerant
+			
 //				// conseiller
-//				em.persist(c);
-//
+				isc
+
 //				// clients
 //				em.persist(cl1);
 //				em.persist(cl2);

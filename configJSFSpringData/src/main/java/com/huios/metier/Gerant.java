@@ -21,6 +21,15 @@ public class Gerant extends Personne {
 	private Collection<Conseiller> conseillers = new ArrayList<Conseiller>();
 	@OneToOne(mappedBy = "gerant")
 	private Agence agence;
+	
+	
+
+	public Gerant(String nom, String prenom, String telephone, String email, Collection<Conseiller> conseillers,
+			Agence agence) {
+		super(nom, prenom, telephone, email);
+		this.conseillers = conseillers;
+		this.agence = agence;
+	}
 
 	public Agence getAgence() {
 		return agence;
