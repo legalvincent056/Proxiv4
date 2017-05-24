@@ -12,7 +12,6 @@ import com.huios.dao.springdata.IDaoGerant;
 import com.huios.dao.springdata.IDaoAdresse;
 import com.huios.dao.springdata.IDaoClient;
 import com.huios.dao.springdata.IDaoCompte;
-import com.huios.metier.Adresse;
 import com.huios.metier.Client;
 import com.huios.metier.Compte;
 import com.huios.metier.Conseiller;
@@ -46,6 +45,11 @@ public class ServiceImp implements IServiceConseiller, IServiceGerant {
 		return daoC.verificationLogin(login, pwd);
 	}
 
+	@Override
+	public Gerant verificationLoginGerant(String login, String pwd) {
+		return daoG.verificationLoginGerant(login, pwd);
+	}
+	
 	@Override
 	public Collection<Client> listerClientsParConseiller(Conseiller conseiller) {
 		return daoP.listerClientsParConseiller(conseiller);
@@ -162,7 +166,6 @@ public class ServiceImp implements IServiceConseiller, IServiceGerant {
 		
 		
 	}
-	
 	
 	
 	

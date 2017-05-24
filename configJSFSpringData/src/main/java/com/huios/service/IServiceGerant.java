@@ -18,4 +18,6 @@ public interface IServiceGerant {
 	 * @return la liste de conseiller par gerant
 	 */
 	public Collection<Conseiller> listerConseillerParGerant(Gerant gerant);
+	
+	public Gerant verificationLoginGerant(String login, String pwd);
 }
