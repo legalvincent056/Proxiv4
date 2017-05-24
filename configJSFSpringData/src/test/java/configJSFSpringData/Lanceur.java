@@ -53,6 +53,8 @@ public class Lanceur {
 			
 				//3- traitement
 				
+				
+				
 				conseiller1 = new Conseiller("Robichet", "Robert", "4565458", "roro69@gmail.fr", "demo", "demo");
 				conseiller2 = new Conseiller("TheConseiller", "PrenomCon", "9874556", "Conseiller2@gmail.fr", "demo2", "demo2");
 				
@@ -131,6 +133,9 @@ public class Lanceur {
 				client4.setComptes(comptes);
 				compte3.setClient(client4);
 				compteEp3.setClient(client4);
+				
+				// association gerant conseiller
+				gerant1= new Gerant("Flantier", "noel", "007", "@mail", conseillers1, agence)
 				
 				//gerant
 			
