@@ -27,7 +27,7 @@ public class ClientBean implements Serializable {
 
 	@Autowired
 	private IServiceConseiller service; 
-	private Collection<Client> clients = new ArrayList<Client>();
+	private Collection<Client> clients;
 	@Autowired
 	private Client client;
 	
