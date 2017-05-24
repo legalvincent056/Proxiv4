@@ -1,5 +1,11 @@
+/**
+ * Interfaces contenant les Méthodes en Query pour les Comptes
+ */
 package com.huios.dao.springdata;
-
+/**
+ * @author FLorent - Florent - Théo - Vincent
+ *
+ */
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.JpaRepository;

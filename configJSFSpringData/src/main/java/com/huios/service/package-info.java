@@ -1,9 +1,9 @@
 /**
- * Couche metier
+ * Couche service
  *
  */
 /**
  * @author FLorent - Florent - Théo - Vincent
  *
  */
-package com.huios.metier;
+package com.huios.service;
