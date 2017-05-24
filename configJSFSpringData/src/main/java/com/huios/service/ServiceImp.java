@@ -149,8 +149,8 @@ public class ServiceImp implements IServiceConseiller, IServiceGerant {
 
 	@Override
 	public Collection<Conseiller> listerConseillerParGerant(Gerant gerant) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return daoG.listerConseillerParGerant(gerant);
 	}
 	
 	
