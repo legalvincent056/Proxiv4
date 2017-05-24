@@ -146,6 +146,12 @@ public class ServiceImp implements IServiceConseiller, IServiceGerant {
 		daoCo.save(compte);
 		
 	}
+
+	@Override
+	public Collection<Conseiller> listerConseillerParGerant(Gerant gerant) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	
