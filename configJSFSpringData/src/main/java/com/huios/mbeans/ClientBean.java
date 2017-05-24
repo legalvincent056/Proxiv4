@@ -57,8 +57,8 @@ public class ClientBean implements Serializable {
 	}
 
 	public Client getClient() {
-		if (client == null)
-			client = new Client();
+//		if (client == null)
+//			client = new Client();
 		return client;
 	}
 	public void setClient(Client client) {
@@ -81,16 +81,18 @@ public class ClientBean implements Serializable {
 		service.modifierClient(client);
 		return "detailsClient";
 	}
-	public String ajouterClientSuite(){
-		service.modifierClient(client);
+
+	
+	public String ajouterClient(Conseiller conseiller){ //A voir pour ajouter adresse
+		service.ajouterClient(conseiller.getIdPersonne(), client);
 		return "listeClients";
 	}
 	
-	public String ajouterClient(Conseiller conseiller){ //A voir pour ajouter adresse
+	public String nouveau(){
+		client= new Client();
+		adresse= new Adresse();
 		client.setAdresse(adresse);
-		System.out.println(client);
-		service.ajouterClient(conseiller.getIdPersonne(), client);
-		return "ajouterClientSuite";
+		return "ajouterClient";
 	}
 	
 }
