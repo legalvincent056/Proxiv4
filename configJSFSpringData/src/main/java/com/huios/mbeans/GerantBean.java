@@ -1,11 +1,14 @@
 package com.huios.mbeans;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.context.annotation.SessionScope;
 
+import com.huios.metier.Conseiller;
 import com.huios.metier.Gerant;
 import com.huios.service.IServiceConseiller;
 @Controller
@@ -22,6 +25,7 @@ public class GerantBean implements Serializable{
 	private static Gerant gerant;
 	
 	
+	
 	public Gerant getGerant() {
 		return gerant;
 	}
@@ -34,5 +38,6 @@ public class GerantBean implements Serializable{
 	public void setService(IServiceConseiller service) {
 		this.service = service;
 	}
+	
 
 }
