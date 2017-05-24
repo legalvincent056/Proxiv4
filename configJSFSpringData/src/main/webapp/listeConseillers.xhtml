@@ -12,8 +12,8 @@
 	<h:form>
 		<p:menubar>
 		<f:facet name="options">
-			<p:outputLabel class="barre" value="Bonjour #{conseillerBean.conseiller.nom}, " />
-            <p:commandButton class="barre" type="submit" icon="ui-icon-extlink" action="#{conseillerBean.deconnexion}" value="Déconnexion"/>
+			<p:outputLabel class="barre" value="Bonjour #{gerantBean.gerant.nom}, " />
+            <p:commandButton class="barre" type="submit" icon="ui-icon-extlink" action="#{gerantBean.deconnexion}" value="Déconnexion"/>
          </f:facet>
        </p:menubar>
 	</h:form>
@@ -40,5 +40,7 @@
 			</p:column>
 		</p:dataTable>
 	</h:form>
+	<H3>Accès au graphique de suivi Virement</H3>
+	<a href="pie.xhtml">accéder au graphique</a>
 </h:body>
 </html>
