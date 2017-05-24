@@ -13,4 +13,8 @@ public interface IDaoGerant extends JpaRepository<Gerant,Long>{
 
 	@Query ("SELECT c FROM Conseiller c WHERE c.gerant = :gerant")
 	public Collection<Conseiller> listerConseillerParGerant(@Param("gerant") Gerant gerant);
+	
+	
+	@Query("SELECT g FROM Gerant g WHERE g.login = :login AND g.pwd = :pwd")
+	public Gerant verificationLogin(@Param("login")String login,@Param("pwd") String pwd);
 }
