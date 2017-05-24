@@ -1,4 +1,4 @@
-package com.huios.mbeans;
+ackage com.huios.mbeans;
 
 import java.io.Serializable;
 import java.util.Collection;
