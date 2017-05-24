@@ -145,9 +145,10 @@ public class Lanceur {
 				
 				Agence agence = new Agence("1", 24052017);
 				
-				gerant1= new Gerant("Flantier", "noel", "007", "@mail", conseillers, agence);
+				gerant1= new Gerant("Flantier", "noel", "007", "ae@mail", conseillers);
 				
 				//gerant
+				System.out.println("ajout");
 				
 				isg.ajouterGerant(gerant1);
 				
@@ -158,6 +159,7 @@ public class Lanceur {
 				isg.ajouterConseiller(gerant1.getIdPersonne(), conseiller2);
 				
 
+				
 //				// clients
 
 				isc.ajouterClient(conseiller1.getIdPersonne(), client1);
@@ -165,13 +167,14 @@ public class Lanceur {
 				isc.ajouterClient(conseiller1.getIdPersonne(), client3);
 				isc.ajouterClient(conseiller1.getIdPersonne(), client4);
 				isc.ajouterClient(conseiller2.getIdPersonne(), client5);
-				
-//				// adresses
+				// adresses
 				isc.ajouterAdresse(client1.getIdPersonne(),adresse1);
 				isc.ajouterAdresse(client2.getIdPersonne(),adresse2);
 				isc.ajouterAdresse(client3.getIdPersonne(),adresse3);
 				isc.ajouterAdresse(client4.getIdPersonne(),adresse4);
 				isc.ajouterAdresse(client5.getIdPersonne(),adresse1);
+				
+//				
 //				// comptes
 				isc.ajouterCompte(client1.getIdPersonne(), compte1);
 				isc.ajouterCompte(client1.getIdPersonne(), compteEp1);
