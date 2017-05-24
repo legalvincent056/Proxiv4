@@ -104,5 +104,8 @@ public interface IServiceConseiller {
 	 * @return conseiller corespondant à l'Id
 	 */
 	public Conseiller afficherConseiller(long idConseiller);
+	
+	public void ajouterCompte(long idPersonne , Compte compte);
+	
 
 }
