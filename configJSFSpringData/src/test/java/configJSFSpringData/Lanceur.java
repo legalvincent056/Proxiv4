@@ -11,6 +11,7 @@ import javax.persistence.Persistence;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.huios.metier.Adresse;
+import com.huios.metier.Agence;
 import com.huios.metier.Client;
 import com.huios.metier.Compte;
 import com.huios.metier.CompteCourant;
@@ -135,25 +136,38 @@ public class Lanceur {
 				compteEp3.setClient(client4);
 				
 				// association gerant conseiller
-				gerant1= new Gerant("Flantier", "noel", "007", "@mail", conseillers1, agence)
+				Collection<Conseiller> conseillers = new ArrayList<Conseiller>();
+				conseillers.add(conseiller1);
+				conseillers.add(conseiller2);
+				
+				conseiller1.setGerant(gerant1);
+				conseiller2.setGerant(gerant1);
+				
+				Agence agence = new Agence("1", 24052017);
+				
+				gerant1= new Gerant("Flantier", "noel", "007", "@mail", conseillers, agence);
 				
 				//gerant
+				
+				isg.ajouterGerant(gerant1);
+				
 			
-//				// conseiller
-				isc
+				// conseiller
+				
+				isg.ajouterConseiller(gerant1.getIdPersonne(), conseiller1);
+				isg.ajouterConseiller(gerant1.getIdPersonne(), conseiller2);
 				
 
 //				// clients
-//				em.persist(cl1);
-//				em.persist(cl2);
-//				em.persist(cl3);
-//				em.persist(cl4);
+
+				isc.ajouterClient(conseiller1.getIdPersonne(), client1);
+				isc.ajouterClient(conseiller1.getIdPersonne(), client2);
+				isc.ajouterClient(conseiller1.getIdPersonne(), client3);
+				isc.ajouterClient(conseiller1.getIdPersonne(), client4);
+				isc.ajouterClient(conseiller2.getIdPersonne(), client5);
+				client1.getIdPersonne()
 //				// adresses
-//				em.persist(a1);
-//				em.persist(a2);
-//				em.persist(a3);
-//				em.persist(a4);
-//
+				isc.ajouterAdresse(client1.getIdPersonne(),adresse1)
 //				// comptes
 //				em.persist(cc1);
 //				em.persist(cc2);

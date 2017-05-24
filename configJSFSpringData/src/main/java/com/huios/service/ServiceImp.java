@@ -36,7 +36,8 @@ public class ServiceImp implements IServiceConseiller, IServiceGerant {
 	@Autowired
 	private IDaoConseiller daoC;
 	
-		@Autowired
+	
+	@Autowired
 	private IDaoCompte daoCo;
 
 	@Override
@@ -145,12 +146,8 @@ public class ServiceImp implements IServiceConseiller, IServiceGerant {
 		daoCo.save(compte);
 		
 	}
-
-	@Override
-	public Collection<Conseiller> listerConseillerParGerant(Gerant gerant) {
 	
-		return daoG.listerConseillerParGerant(gerant);
-	}
+	
 	
 	
 }
