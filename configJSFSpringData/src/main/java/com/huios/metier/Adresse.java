@@ -19,7 +19,8 @@ public class Adresse {
 	private String rue;
 	private String codePostal;
 	private String ville;
-
+	
+	
 	public Adresse(String rue, String codePostal, String ville) {
 		super();
 		this.rue = rue;
@@ -62,5 +63,13 @@ public class Adresse {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
+
+	@Override
+	public String toString() {
+		return "Adresse [idAdresse=" + idAdresse + ", rue=" + rue + ", codePostal=" + codePostal + ", ville=" + ville
+				+ "]";
+	}
+	
+	
 
 }

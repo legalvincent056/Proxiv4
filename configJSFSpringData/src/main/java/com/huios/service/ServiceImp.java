@@ -122,6 +122,7 @@ public class ServiceImp implements IServiceConseiller, IServiceGerant {
 		
 		//if(clients.size()>=10){
 			client.setConseiller(cons);
+			
 			daoP.save(client);
 					
 		//}

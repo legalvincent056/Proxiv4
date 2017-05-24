@@ -12,6 +12,7 @@ import org.springframework.web.context.annotation.SessionScope;
 
 import com.huios.metier.Adresse;
 import com.huios.metier.Client;
+import com.huios.metier.Conseiller;
 import com.huios.service.IServiceConseiller;
 
 
@@ -80,10 +81,16 @@ public class ClientBean implements Serializable {
 		service.modifierClient(client);
 		return "detailsClient";
 	}
-	
-	public String ajouterClient(long idConseiller, Client client){ //A voir pour ajouter adresse
-		service.ajouterClient(idConseiller, client);
+	public String ajouterClientSuite(){
+		service.modifierClient(client);
 		return "listeClients";
+	}
+	
+	public String ajouterClient(Conseiller conseiller){ //A voir pour ajouter adresse
+		client.setAdresse(adresse);
+		System.out.println(client);
+		service.ajouterClient(conseiller.getIdPersonne(), client);
+		return "ajouterClientSuite";
 	}
 	
 }

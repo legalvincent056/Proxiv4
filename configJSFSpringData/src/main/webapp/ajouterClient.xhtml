@@ -23,6 +23,7 @@
 	</h:form>
 
 	<h:form>
+	<h2>Ajout Client</h2>
 		<h3>Désignation</h3>
 		<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10"
 			layout="grid" styleClass="ui-panelgrid-blank">
@@ -32,31 +33,9 @@
 			<p:outputLabel value="Prenom :" for="prenom" />
 			<p:inputText id="prenom" value="#{clientBean.client.prenom}" />
 		</p:panelGrid>
-		<h3>Coordonnées</h3>
-		<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10"
-			layout="grid" styleClass="ui-panelgrid-blank">
-			<p:outputLabel value="Rue :" for="rue" />
-			<p:inputText id="rue" value="#{clientBean.client.adresse.rue}" />
-
-			<p:outputLabel value="Code Postal :" for="cp" />
-			<p:inputText id="cp" value="#{clientBean.client.adresse.codePostal}" />
-
-			<p:outputLabel value="Ville :" for="ville" />
-			<p:inputText id="ville" value="#{clientBean.client.adresse.ville}" />
-
-		</p:panelGrid>
-		<h3>Contact</h3>
-		<p:panelGrid columns="2" columnClasses="ui-grid-col-2,ui-grid-col-10"
-			layout="grid" styleClass="ui-panelgrid-blank">
-			<p:outputLabel value="Téléphone :" for="tel" />
-			<p:inputText id="tel" value="#{clientBean.client.telephone}" />
-
-			<p:outputLabel value="Email :" for="email" />
-			<p:inputText id="email" value="#{clientBean.client.email}" />
-		</p:panelGrid>
 
 		<p:commandButton value="Ajouter"
-			action="#{clientBean.ajouterClient}" />
+			action="#{clientBean.ajouterClient(conseillerBean.conseiller)}" />
 	</h:form>
 
 </h:body>
