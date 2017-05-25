@@ -53,7 +53,7 @@ public class GerantBean implements Serializable{
 	
 	public String deconnexion(){
 		gerant = new Gerant();
-		return "index";
+		return "indexGerant";
 		
 	}
 	
