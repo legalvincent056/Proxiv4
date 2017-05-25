@@ -1,26 +1,25 @@
 package com.huios.service;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 
-import com.huios.dao.springdata.IDaoConseiller;
-import com.huios.dao.springdata.IDaoGerant;
+//import com.huios.dao.springdata.IDaoTransaction;
 import com.huios.dao.springdata.IDaoAdresse;
 import com.huios.dao.springdata.IDaoClient;
 import com.huios.dao.springdata.IDaoCompte;
+import com.huios.dao.springdata.IDaoConseiller;
+import com.huios.dao.springdata.IDaoGerant;
+import com.huios.dao.springdata.IDaoTransaction;
 import com.huios.metier.Adresse;
 import com.huios.metier.Client;
 import com.huios.metier.Compte;
-import com.huios.metier.Conseiller;
-import com.huios.metier.Gerant;
-import com.huios.metier.Personne;
-import com.huios.metier.User;
 import com.huios.metier.CompteCourant;
 import com.huios.metier.CompteEpargne;
+import com.huios.metier.Conseiller;
+import com.huios.metier.Gerant;
+import com.huios.metier.Transaction;
 
 @Service
 public class ServiceImp implements IServiceConseiller, IServiceGerant {
@@ -41,6 +40,12 @@ public class ServiceImp implements IServiceConseiller, IServiceGerant {
 	
 	@Autowired
 	private IDaoCompte daoCo;
+	
+	@Autowired
+	private IDaoTransaction daoT;
+	
+	
+	
 
 	
 	
@@ -98,7 +103,9 @@ public class ServiceImp implements IServiceConseiller, IServiceGerant {
 			
 			daoCo.save(compteDebiteur);
 			daoCo.save(compteCrediteur);
-			
+			Transaction transaction =new Transaction();
+			transaction.setNom(compteDebiteur.getClient().getConseiller().getNom());
+			daoT.save(transaction);
 			return true;
 		}
 		return false;
@@ -171,6 +178,12 @@ public class ServiceImp implements IServiceConseiller, IServiceGerant {
 		
 		
 	}
+
+
+
+
+
+	
 
 
 	
