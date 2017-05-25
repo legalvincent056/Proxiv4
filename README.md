@@ -25,7 +25,7 @@ Le projet a été realisé en Maven MonoModule.
 		
 	(dans phpMyAdmin en cliquant sur l'onglet import)
 			
-	- Copier le fichier "livraison\ProxiV4.war" dans le repertoire "webapps" de Tomcat
+	- Copier le fichier "livraison\configJSFSpringData.war" dans le repertoire "webapps" de Tomcat
 		
 	(ex: C:\apache-tomcat-9.0.0.M19\webapps, si Tomcat est installé dans C:\apache-tomcat-9.0.0.M19)
 			
