@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
+-- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: May 24, 2017 at 02:51 PM
--- Server version: 5.6.35
--- PHP Version: 5.6.30
+-- Client :  127.0.0.1
+-- Généré le :  Jeu 25 Mai 2017 à 10:09
+-- Version du serveur :  5.7.14
+-- Version de PHP :  5.6.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `proxiv3`
+-- Base de données :  `proxiv3`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `adresse`
+-- Structure de la table `adresse`
 --
 
 CREATE TABLE `adresse` (
@@ -34,19 +34,20 @@ CREATE TABLE `adresse` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `adresse`
+-- Contenu de la table `adresse`
 --
 
 INSERT INTO `adresse` (`idAdresse`, `codePostal`, `rue`, `ville`) VALUES
 (1, '69740', 'rue du chat qui tousse', 'GENAS'),
 (2, '25148', 'avenue du chateau', 'LOURDE'),
 (3, '42563', 'rue du mouton qui broute', 'SAINT-ETIENNE'),
-(4, '56240', 'avenue de la rue', 'QUIBERON');
+(4, '56240', 'avenue de la rue', 'QUIBERON'),
+(11, '98520', '8, rue des test', 'TESTVILLE');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `agence`
+-- Structure de la table `agence`
 --
 
 CREATE TABLE `agence` (
@@ -59,7 +60,7 @@ CREATE TABLE `agence` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cartebancaire`
+-- Structure de la table `cartebancaire`
 --
 
 CREATE TABLE `cartebancaire` (
@@ -72,7 +73,7 @@ CREATE TABLE `cartebancaire` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `compte`
+-- Structure de la table `compte`
 --
 
 CREATE TABLE `compte` (
@@ -87,7 +88,7 @@ CREATE TABLE `compte` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `compte`
+-- Contenu de la table `compte`
 --
 
 INSERT INTO `compte` (`TYPE_COMPTE`, `numeroCompte`, `dateOuverture`, `solde`, `remuneration`, `decouvert`, `carteBancaire_idCarteBancaire`, `client_idPersonne`) VALUES
@@ -101,7 +102,24 @@ INSERT INTO `compte` (`TYPE_COMPTE`, `numeroCompte`, `dateOuverture`, `solde`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personne`
+-- Structure de la table `hibernate_sequence`
+--
+
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `hibernate_sequence`
+--
+
+INSERT INTO `hibernate_sequence` (`next_val`) VALUES
+(12);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `personne`
 --
 
 CREATE TABLE `personne` (
@@ -121,7 +139,7 @@ CREATE TABLE `personne` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `personne`
+-- Contenu de la table `personne`
 --
 
 INSERT INTO `personne` (`PERSONNE_TYPE`, `idPersonne`, `email`, `nom`, `prenom`, `telephone`, `entreprise`, `nomEntreprise`, `login`, `pwd`, `adresse_idAdresse`, `conseiller_idPersonne`, `gerant_idPersonne`) VALUES
@@ -131,12 +149,13 @@ INSERT INTO `personne` (`PERSONNE_TYPE`, `idPersonne`, `email`, `nom`, `prenom`,
 ('CLIENT', 4, 'jojotutu@hotmail.fr', 'gaga', 'Jojo', '9879495925', b'1', 'MomoEnterprise', NULL, NULL, 3, 1, NULL),
 ('GERANT', 5, 'lulu@hotmail.fr', 'momo', 'Lulu', '65484821212', b'0', NULL, 'demo3', 'demo3', 4, 1, NULL),
 ('CONSEILLER', 6, 'Conseiller2@gmail.fr', 'TheConseiller', 'PrenomCon', '9874556', NULL, NULL, 'demo2', 'demo2', NULL, NULL, 5),
-('CLIENT', 7, 'jojodu56@hotmail.fr', 'LE BAIL', 'Jonathan', '6525482323', b'0', NULL, NULL, NULL, 2, 6, NULL);
+('CLIENT', 7, 'jojodu56@hotmail.fr', 'LE BAIL', 'Jonathan', '6525482323', b'0', NULL, NULL, NULL, 2, 6, NULL),
+('CLIENT', 10, '@lkjg', 'NOMTEST', 'Prenomtest', '0232651585', b'0', NULL, NULL, NULL, 11, 1, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `placement`
+-- Structure de la table `placement`
 --
 
 CREATE TABLE `placement` (
@@ -146,32 +165,64 @@ CREATE TABLE `placement` (
   `client_idPersonne` bigint(20) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
 --
--- Indexes for dumped tables
+-- Structure de la table `roles`
+--
+
+CREATE TABLE `roles` (
+  `login` varchar(30) NOT NULL,
+  `PERSONNE_TYPE` varchar(30) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `roles`
+--
+
+INSERT INTO `roles` (`login`, `PERSONNE_TYPE`) VALUES
+('demo', 'CONSEILLER'),
+('demo2', 'CONSEILLER'),
+('demo3', 'GERANT');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL,
+  `nom` varchar(255) DEFAULT NULL,
+  `prenom` varchar(255) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Index pour les tables exportées
 --
 
 --
--- Indexes for table `adresse`
+-- Index pour la table `adresse`
 --
 ALTER TABLE `adresse`
   ADD PRIMARY KEY (`idAdresse`);
 
 --
--- Indexes for table `agence`
+-- Index pour la table `agence`
 --
 ALTER TABLE `agence`
   ADD PRIMARY KEY (`idAgence`),
   ADD KEY `FK_q5i0kapmsupoohhrnsncedqel` (`gerant_idPersonne`);
 
 --
--- Indexes for table `cartebancaire`
+-- Index pour la table `cartebancaire`
 --
 ALTER TABLE `cartebancaire`
   ADD PRIMARY KEY (`idCarteBancaire`),
   ADD KEY `FK_tgkd80bbfqqdb4llixj62cek0` (`compte_numeroCompte`);
 
 --
--- Indexes for table `compte`
+-- Index pour la table `compte`
 --
 ALTER TABLE `compte`
   ADD PRIMARY KEY (`numeroCompte`),
@@ -179,7 +230,7 @@ ALTER TABLE `compte`
   ADD KEY `FK_1b66ossdbkhm0r1fjomaq3w2a` (`client_idPersonne`);
 
 --
--- Indexes for table `personne`
+-- Index pour la table `personne`
 --
 ALTER TABLE `personne`
   ADD PRIMARY KEY (`idPersonne`),
@@ -188,46 +239,57 @@ ALTER TABLE `personne`
   ADD KEY `FK_97hs2ki1kf3t629fyvjieb08i` (`gerant_idPersonne`);
 
 --
--- Indexes for table `placement`
+-- Index pour la table `placement`
 --
 ALTER TABLE `placement`
   ADD PRIMARY KEY (`idPlacement`),
   ADD KEY `FK_g50ecye3xx6yrn4pqyc8787iu` (`client_idPersonne`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
 --
 
 --
--- AUTO_INCREMENT for table `adresse`
+-- AUTO_INCREMENT pour la table `adresse`
 --
 ALTER TABLE `adresse`
-  MODIFY `idAdresse` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idAdresse` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- AUTO_INCREMENT for table `agence`
+-- AUTO_INCREMENT pour la table `agence`
 --
 ALTER TABLE `agence`
   MODIFY `idAgence` bigint(20) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `cartebancaire`
+-- AUTO_INCREMENT pour la table `cartebancaire`
 --
 ALTER TABLE `cartebancaire`
   MODIFY `idCarteBancaire` bigint(20) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `compte`
+-- AUTO_INCREMENT pour la table `compte`
 --
 ALTER TABLE `compte`
   MODIFY `numeroCompte` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- AUTO_INCREMENT for table `personne`
+-- AUTO_INCREMENT pour la table `personne`
 --
 ALTER TABLE `personne`
-  MODIFY `idPersonne` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idPersonne` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
--- AUTO_INCREMENT for table `placement`
+-- AUTO_INCREMENT pour la table `placement`
 --
 ALTER TABLE `placement`
   MODIFY `idPlacement` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
